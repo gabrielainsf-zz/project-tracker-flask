@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <title>Project Tracker</title>
+</head>
+
+<body>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+  <form action="/student-add" method="POST">
+      <label>Enter new student information<br>
+          <!-- Form fields here -->
+          First name: <input type="text" name="first_name" required><br>
+          Last name: <input type="text" name="last_name" required><br>
+          Github account: <input type="text" name="github" required><br>
+      </label>
+      <input type="submit" value="Add Student">
+  </form>
+
+</body>
+</html>
