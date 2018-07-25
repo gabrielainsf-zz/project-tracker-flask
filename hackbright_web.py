@@ -21,7 +21,8 @@ def get_student():
 
     projects = hackbright.get_grades_by_github(github)
 
-    return render_template("student_info.html", first=first, last=last, github=github, projects=projects)
+    return render_template("student_info.html", first=first, last=last, 
+    						github=github, projects=projects)
 
 
 @app.route("/student-search")
@@ -54,6 +55,20 @@ def student_add():
     # flash message and redirect to /student-form route
     flash("Successfully added {} {}".format(first_name, last_name))
     return redirect("/student-form")
+
+
+@app.route("/project")
+def show_project_info():
+	""" Displays project information."""
+
+	project_title = request.args.get('title')
+
+	project_info = hackbright.get_project_by_title(project_title)
+
+	student_projects = hackbright.get_grades_by_title(project_title)
+
+	return render_template("project_info.html", project_info=project_info,
+							students=student_projects)
 
 
 if __name__ == "__main__":

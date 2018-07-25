@@ -8,6 +8,15 @@
 
 	<br>Project Title: {{ project_info[0] }}
 	<br>Project Description: {{ project_info[1] }}
-	<br>Max Grade: {{ project_info[2] }} 
+	<br>Max Grade: {{ project_info[2] }}
+	<br>
+
+	<ul>
+		{% for student in students %}
+		<li><a href="/student?github={{ student[0] }}">{{ student[0] }}</a> received {{ student[1] }} points.</li>
+		{% endfor %}
+	</ul>
+
 
 </body>
+</html>
