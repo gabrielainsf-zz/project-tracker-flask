@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="static/styles.css">
+
+    <title>Homepage</title>
+</head>
+<body>
+
+<div class="inline">
+	<h3>Students:</h3>
+	<ul>
+	{% for student in all_students %}
+	<li>{{ student[0] }} {{ student[1] }}</li>
+	{% endfor %}
+	</ul>
+</div>
+
+<div class="inline">
+	<h3>Projects:</h3>
+	<ul>
+		{% for project in all_projects %}
+		<li>{{ project[0] }}</li>
+		{% endfor %}
+	</ul>
+</div>
+
+</body>
+</html>

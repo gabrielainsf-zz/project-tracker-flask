@@ -10,6 +10,20 @@ app = Flask(__name__)
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 
+@app.route("/")
+def show_homepage():
+    """Display homepage."""
+    # get all students from db (list of tuples with first name, last name)
+    students = hackbright.get_students()
+
+    # get all projects from db
+    projects = hackbright.get_projects()
+
+    return render_template("index.html", all_students=students, all_projects=projects)
+
+
+
+
 #### Searching and seeing student into
 @app.route("/student")
 def get_student():
