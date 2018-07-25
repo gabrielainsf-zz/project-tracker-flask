@@ -11,7 +11,9 @@
 	<h3>Students:</h3>
 	<ul>
 	{% for student in all_students %}
-	<li>{{ student[0] }} {{ student[1] }}</li>
+	<li>
+		<a href="/student?github={{ student[2] }}">{{ student[0] }} {{ student[1] }}</a>
+	</li>
 	{% endfor %}
 	</ul>
 </div>
@@ -20,7 +22,9 @@
 	<h3>Projects:</h3>
 	<ul>
 		{% for project in all_projects %}
-		<li>{{ project[0] }}</li>
+		<li>
+			<a href="/project?title={{ project[0] }}">{{ project[0] }}</a>
+		</li>
 		{% endfor %}
 	</ul>
 </div>

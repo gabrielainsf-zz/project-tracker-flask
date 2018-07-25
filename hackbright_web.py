@@ -75,12 +75,16 @@ def student_add():
 def show_project_info():
 	""" Displays project information."""
 
+    # get project title from GET request
 	project_title = request.args.get('title')
 
+    # get information about project from db
 	project_info = hackbright.get_project_by_title(project_title)
 
+    # get student project grades from db
 	student_projects = hackbright.get_grades_by_title(project_title)
 
+    # pass this information to the template (for displaying project info)
 	return render_template("project_info.html", project_info=project_info,
 							students=student_projects)
 

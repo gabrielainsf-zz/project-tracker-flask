@@ -153,7 +153,7 @@ def get_students():
     """Get all students from Students table."""
 
     QUERY = """
-    SELECT first_name, last_name
+    SELECT first_name, last_name, github
     FROM students
     """
 
