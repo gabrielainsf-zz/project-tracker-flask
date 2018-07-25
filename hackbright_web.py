@@ -71,6 +71,31 @@ def student_add():
     return redirect("/student-form")
 
 
+#### ADD NEW PROJECT INFORMATION
+@app.route("/project-form")
+def show_project_form():
+    """Collect info for new student."""
+    # render a template with an HTML form
+    return render_template("project_form.html")
+
+
+@app.route("/add-project", methods=['POST'])
+def add_project():
+    """Add a student."""
+    
+    # collect form info
+    title = request.form.get('project_title')
+    description = request.form.get('project_desc')
+    max_grade = request.form.get('max_possible')
+
+    # use form into to call make_new_project
+    hackbright.make_new_project(title, description, max_grade)
+
+    # flash message and redirect to /student-form route
+    flash("Successfully added {}".format(title))
+    return redirect("/project-form")
+
+
 @app.route("/project")
 def show_project_info():
 	""" Displays project information."""
